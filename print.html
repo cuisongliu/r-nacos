@@ -1,0 +1,921 @@
+<!DOCTYPE HTML>
+<html lang="cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>r-nacos文档</title>
+                <meta name="robots" content="noindex" />
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">简介</a></li><li class="chapter-item expanded "><a href="quick-started.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li class="chapter-item expanded "><a href="cluster_deploy.html"><strong aria-hidden="true">2.</strong> 集群部署</a></li><li class="chapter-item expanded "><a href="deplay_env.html"><strong aria-hidden="true">3.</strong> 运行参数说明</a></li><li class="chapter-item expanded "><a href="performance.html"><strong aria-hidden="true">4.</strong> 性能与容量说明</a></li><li class="chapter-item expanded "><a href="version_describe.html"><strong aria-hidden="true">5.</strong> 版本说明</a></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">6.</strong> 常见问题</a></li><li class="chapter-item expanded "><a href="architecture.html"><strong aria-hidden="true">7.</strong> 架构</a></li><li class="chapter-item expanded "><a href="console_api.html"><strong aria-hidden="true">8.</strong> 控制台接口</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">r-nacos文档</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="简介"><a class="header" href="#简介">简介</a></h1>
+<p>r-nacos是一个用rust实现的nacos服务。</p>
+<p>r-nacos是一个轻量、 快速、稳定、高性能的服务；包含注册中心、配置中心、web管理控制台功能，支持单机、集群部署。</p>
+<p>r-nacos设计上完全兼容最新版本nacos面向client sdk 的协议（包含1.x的http OpenApi，和2.x的grpc协议）, 支持使用nacos服务的应用平迁到 r-nacos。</p>
+<p>r-nacos相较于java nacos来说，是一个提供相同功能，启动更快、占用系统资源更小、性能更高、运行更稳定的服务。</p>
+<h2 id="适用场景"><a class="header" href="#适用场景">适用场景</a></h2>
+<ol>
+<li>开发测试环境使用nacos，nacos服务可以换成r-nacos。启动更快，秒启动。</li>
+<li>个人资源云服务部署的 nacos，可以考虑换成r-nacos。资源占用率低: 包10M 出头，不依赖 JDK；运行时 cpu 小于0.5% ，小于5M（具体和实例有关）。</li>
+<li>使用非订制nacos服务 ，希望能提升服务性能与稳定性，可以考虑迁移到 r-nacos。</li>
+</ol>
+<h2 id="功能说明"><a class="header" href="#功能说明">功能说明</a></h2>
+<p>这里把 nacos 服务的功能分为三块
+1、面向 SDK 的功能
+2、面向控制台的功能
+3、面向部署、集群的功能</p>
+<p>每一块做一个对nacos服务的对比说明。</p>
+<h3 id="一面向-sdk-的功能"><a class="header" href="#一面向-sdk-的功能">一、面向 SDK 的功能</a></h3>
+<p>访问认证：</p>
+<ol>
+<li>有提供获取认证token的接口</li>
+<li>实际请求暂不支持认证，都算认证通过。</li>
+</ol>
+<p>配置中心：</p>
+<ol>
+<li>支持配置中心的基础功能、支持维护配置历史记录</li>
+<li>兼容配置中心的SDK协议</li>
+<li>暂不支持灰度发布、暂不支持tag隔离</li>
+</ol>
+<p>注册中心：</p>
+<ol>
+<li>支持注册中心的基础功能</li>
+<li>兼容配置中心的SDK协议</li>
+<li>暂不支持1.x的 udp 实例变更实时通知，只支持 2.x 版本grpc实例变更实时通知 。最开始的版本也有支持过udp实例变更 通知，后面因支持 grpc 的两者不统一，就暂时去掉，后继可以考虑加回去。</li>
+</ol>
+<h3 id="二面向控制台的功能"><a class="header" href="#二面向控制台的功能">二、面向控制台的功能</a></h3>
+<p>访问认证：
+暂时不开启认证</p>
+<p>命名空间：</p>
+<ol>
+<li>支持管理命名空间列表</li>
+<li>支持切换命名空间查询配置、服务数据。</li>
+</ol>
+<p>配置中心：</p>
+<ol>
+<li>支持配置中心信息管理</li>
+<li>支持配置导入、导出,其文件格式与nacos兼容</li>
+<li>支持配置历史记录查看与恢复</li>
+<li>暂不支持tag的高级查询</li>
+<li>暂不支持查询配置监听记录</li>
+</ol>
+<p>服务中心：</p>
+<ol>
+<li>支持注册中心的服务、服务实例管理</li>
+<li>暂不支持查询监听记录</li>
+</ol>
+<h3 id="三面向部署集群的功能"><a class="header" href="#三面向部署集群的功能">三、面向部署、集群的功能</a></h3>
+<ol>
+<li>支持单机部署</li>
+<li>支持集群部署。集群部署配置中心数据使用raft+节点本地存储组成的分布式存储，不需要依赖mysql。具体参考 <a href="./cluster_deploy.html">集群部署说明</a></li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="快速开始"><a class="header" href="#快速开始">快速开始</a></h1>
+<h2 id="一-安装运行-r-nacos"><a class="header" href="#一-安装运行-r-nacos">一、 安装运行 r-nacos</a></h2>
+<p>【单机部署】</p>
+<p>方式1：从 <a href="https://github.com/heqingpan/rnacos/releases">github release</a> 下载对应系统的应用包，解压后即可运行。</p>
+<p>linux 或 mac </p>
+<pre><code class="language-shell"># 解压
+tar -xvf rnacos-x86_64-apple-darwin.tar.gz
+# 运行
+./rnacos
+</code></pre>
+<p>windows 解压后直接运行 rnacos.exe 即可。</p>
+<p>方式2:  通过docker 运行</p>
+<pre><code>#stable是最新正式版本号，也可以指定镜像版本号，如： qingpan/rnacos:v0.4.0
+docker pull qingpan/rnacos:stable  
+docker run --name mynacos -p 8848:8848 -p 9848:9848 -p 10848:10848 -d qingpan/rnacos:stable
+</code></pre>
+<p>docker 的容器运行目录是 /io，会从这个目录读写配置文件</p>
+<h4 id="docker-版本说明"><a class="header" href="#docker-版本说明">docker 版本说明</a></h4>
+<p>应用每次打包都会同时打对应版本的docker包 ，qingpan/rnacos:$tag 。</p>
+<p>每个版本会打两类docker包</p>
+<table><thead><tr><th>docker包类型</th><th>tag 格式</th><th>示例</th><th>说明</th></tr></thead><tbody>
+<tr><td>gnu debian包</td><td>$version</td><td>qingpan/rnacos:v0.4.0</td><td>docker包基于debian-slim,体积比较大(压缩包36M,解压后102M),运行性能相对较高;</td></tr>
+<tr><td>musl alpine包</td><td>$version-alpine</td><td>qingpan/rnacos:v0.4.0-alpine</td><td>docker包基于alpine,体积比较小(压缩包11M,解压后34M),运行性能相对较低;</td></tr>
+</tbody></table>
+<p>如果不观注版本，可以使用最新正式版本tag: </p>
+<ul>
+<li>最新的gnu正式版本: <code>qingpan/rnacos:stable</code></li>
+<li>最新的alpine正式版本: <code>qingpan/rnacos:stable-alpine</code></li>
+</ul>
+<p>方式3：通过 cargo 编译安装</p>
+<pre><code># 安装
+cargo install rnacos
+# 运行
+rnacos
+</code></pre>
+<p>方式4: 下载源码编译运行</p>
+<pre><code>git clone https://github.com/heqingpan/rnacos.git
+cd rnacos
+cargo build --release
+cargo run --release
+</code></pre>
+<p>方式5: MacOS支持通过brew安装</p>
+<pre><code class="language-shell"># 把r-nacos加入taps
+brew tap r-nacos/r-nacos 
+
+# brew 安装 r-nacos
+brew install r-nacos
+
+# 运行
+rnacos
+
+# 后续可以直接通过以下命令更新到最新版本
+# brew upgrade r-nacos 
+</code></pre>
+<p>测试、试用推荐使用第1、第2种方式，直接下载就可以使用。</p>
+<p>在linux下第1、第2种方式默认是musl版本(性能比gnu版本差一些)，在生产服务对性能有要求的可以考虑使用第3、第4种在对应环境编译gnu版本部署。</p>
+<p>启动配置可以参考： <a href="./deplay_env.html">运行参数说明</a></p>
+<h2 id="二运行nacos-应用"><a class="header" href="#二运行nacos-应用">二、运行nacos 应用</a></h2>
+<p>服务启动后，即可运行原有的 nacos 应用。</p>
+<h3 id="配置中心http-api例子"><a class="header" href="#配置中心http-api例子">配置中心http api例子</a></h3>
+<pre><code># 设置配置
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/cs/configs' -d 'dataId=t001&amp;group=foo&amp;content=contentTest'
+
+# 查询
+curl 'http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=t001&amp;group=foo'
+
+</code></pre>
+<h3 id="注册中心http-api例子"><a class="header" href="#注册中心http-api例子">注册中心http api例子</a></h3>
+<pre><code># 注册服务实例
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.11&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;001&quot;}'
+
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.12&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;002&quot;}'
+
+ curl -X POST 'http://127.0.0.1:8848/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.13&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;003&quot;}'
+
+# 查询服务实例
+
+curl &quot;http://127.0.0.1:8848/nacos/v1/ns/instance/list?&amp;namespaceId=public&amp;serviceName=foo%40%40nacos.test.001&amp;groupName=foo&amp;clusters=&amp;healthyOnly=true&quot;
+
+</code></pre>
+<p>具体的用法参考 nacos.io 的用户指南。</p>
+<p><a href="https://nacos.io/zh-cn/docs/sdk.html">JAVA-SDK</a></p>
+<p><a href="https://nacos.io/zh-cn/docs/other-language.html">其它语言</a></p>
+<p><a href="https://nacos.io/zh-cn/docs/open-api.html">open-api</a></p>
+<h2 id="三使用r-nacos控制台"><a class="header" href="#三使用r-nacos控制台">三、使用r-nacos控制台</a></h2>
+<p>从0.4.0版本开始，支持独立端口号的新控制台。新控制台有完备的用户管理、登陆校验、权限控制，支持对外网暴露。</p>
+<p>启动服务后可以在浏览器通过 <code>http://127.0.0.1:10848/rnacos/</code> 访问r-nacos新控制台。 </p>
+<p>老控制台<code>http://127.0.0.1:8848/rnacos/</code> 标记废弃，默认不开启，可通过配置开启。老控制台不需要登陆鉴权、不支持用户管理。</p>
+<p>主要包含用户管理、命名空间管理、配置管理、服务管理、服务实例管理。</p>
+<p>1、用户登陆</p>
+<p>在新控制台打开一个地址，如果检测到没有登陆，会自动跳转到登陆页面。
+一个用户连续登陆失败5次，会被锁定1个小时。这个次数可以通过启动参数配置。</p>
+<img style="width: 400px;" width="400" src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20231223220425.png" />
+<p>2、用户管理</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20231223222325.png" alt="" /></p>
+<p>系统会默认创建一个名为<code>admin</code>的用户，密码为<code>admin</code>(也可以通过环境变量 RNACOS_INIT_ADMIN_USERNAME 和 RNACOS_INIT_ADMIN_PASSWORD 修改默认账号的账户名和密码)。 </p>
+<p>进去控制台后可按需管理用户。 </p>
+<p>用户角色权限说明：</p>
+<ol>
+<li>管理员: 所有控制台权限</li>
+<li>开发者：除了用户管理的所有控制台权限</li>
+<li>访客：只能查询配置中心与注册中心的数据，没有编辑权限。</li>
+</ol>
+<p><strong>注意：</strong> 对外暴露的nacos控制台端口前，建议增加一个自定义管理员，把admin用户删除或禁用。</p>
+<p>3、配置管理</p>
+<p>配置列表管理</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230506155441.png" alt="" /></p>
+<p>新建、编辑配置</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230506155545.png" alt="" /></p>
+<p>4、服务列表管理</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230506155133.png" alt="" /></p>
+<p>5、服务实例管理</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230506155158.png" alt="" /></p>
+<p>6、命名空间管理</p>
+<p><img src="https://user-images.githubusercontent.com/1174480/268299574-4947b9f8-79e1-48e2-97fe-e9767e26ddc0.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="集群部署"><a class="header" href="#集群部署">集群部署</a></h1>
+<p>r-nacos 在v0.3.0版本后支持集群部署。</p>
+<h2 id="集群功能机制简介"><a class="header" href="#集群功能机制简介">集群功能机制简介</a></h2>
+<p>集群部署的目标是通过多实例部署的方式，支持服务的水平扩容，支持部分节点异常后继续提供服务，提升稳定性。</p>
+<h3 id="配置中心"><a class="header" href="#配置中心">配置中心</a></h3>
+<p>配置中心使用raft集群协议+本地存储，持久化数据，不需要再依赖 mysql 存储配置。其持久化机制类似<code>etcd</code>。</p>
+<table><thead><tr><th>请求方式</th><th>说明</th><th>性能</th></tr></thead><tbody>
+<tr><td>写入</td><td>只有主节点能写入，其它节点收到写入请求后转发到主节点写入</td><td>集群2千tps左右，有优化空间</td></tr>
+<tr><td>读取</td><td>每个节点都能读取全量数据</td><td>单节点8万qps左右,集群总容量为n*8万</td></tr>
+</tbody></table>
+<h3 id="注册中心"><a class="header" href="#注册中心">注册中心</a></h3>
+<p>注册中心使用类distor协议，同步集群间的数据。</p>
+<p>注册中心复用配置中心节点列表信息，两者协议是分别单独实现的。</p>
+<table><thead><tr><th>请求方式</th><th>说明</th><th>性能</th></tr></thead><tbody>
+<tr><td>写入</td><td>注册中心每个节点平等，按hash划分每个节点负责的内容；节点对负责的服务可写，否则转发到对应负责的节点处理。</td><td>集群1万tps左右</td></tr>
+<tr><td>读取</td><td>每个节点都能读取全量数据</td><td>单节点3万qps左右,集群总容量为n*3万</td></tr>
+</tbody></table>
+<h2 id="集群部署-1"><a class="header" href="#集群部署-1">集群部署</a></h2>
+<p>集群部署和单机部署步骤一致，只是对应的运行参数不同，增加了集群节点的配置。</p>
+<h3 id="一取得r-nacos安装包"><a class="header" href="#一取得r-nacos安装包">一、取得r-nacos安装包</a></h3>
+<p>安装包的获取方式与 <a href="./quick-started.html">快速开始</a>一致</p>
+<h3 id="二配置集群规则"><a class="header" href="#二配置集群规则">二、配置集群规则</a></h3>
+<p>集群部署相关的配置参数有四个:RNACOS_RAFT_NODE_ID,RNACOS_RAFT_NODE_ADDR,RNACOS_RAFT_AUTO_INIT,RNACOS_RAFT_JOIN_ADDR。</p>
+<p>具体参数说明参考 <a href="./deplay_env.html">运行参数说明</a> </p>
+<p>集群配置规则： </p>
+<ol>
+<li>所有的集群节点都需要设置RNACOS_RAFT_NODE_ID,RNACOS_RAFT_NODE_ADDR ,其中不同节点的node_id和 node_addr不能相同；node_id为一个正整数，node_addr为<code>ip:grpc_port</code> </li>
+<li>集群主节点： 初始设置RNACOS_RAFT_AUTO_INIT为true （如果节点为1，默认是 true,不用额外设置）。</li>
+<li>集群从节点： 初始设置RNACOS_RAFT_AUTO_INIT为false (节点非1,默认就是false,不用额外设置)；另外需要设置RNACOS_RAFT_JOIN_ADDR为当前主节点的地址，以方便启动时自动加入集群中。</li>
+<li>第2、3点只是为了初始化组建集群。集群运行起来之后，后继启动配置从raft db中加载。</li>
+<li>集群节点数量不要求，可以是1、2、3、4、... ； 不过raft协议只支持小于集群半数节点异常后继续提供写入服务(查询不影响)。例如：3个节点集群支持1个节点异常后提供写入服务，2个节点集群可以正常运行，不支持节点异常后提供服务。</li>
+<li>从节点可以在使用过程中按需加入。比如原来3个节点，可能在使用一段时间后增加2个节点扩容。</li>
+</ol>
+<h4 id="实例规划集群节点信息并编写对应的配置文件"><a class="header" href="#实例规划集群节点信息并编写对应的配置文件">实例：规划集群节点信息并编写对应的配置文件</a></h4>
+<p>按上面的配置规则，下面我们配置一个3节点集群例子。</p>
+<p>初始化节信息</p>
+<ol>
+<li>主节点id为1，地址为127.0.0.1:9848</li>
+<li>第一个从节点id为2，地址为127.0.0.1:9849</li>
+<li>第二个从节点id为3，地址为127.0.0.1:9849</li>
+</ol>
+<p>正式集群部署的log等级建议设置为<code>warn</code>,不打正常的请求日志，只打报警或异常日志，减少日志量。</p>
+<p><strong>配置信息如下</strong></p>
+<p>env01</p>
+<pre><code>#file:env01 , Initialize with the leader node role
+RUST_LOG=warn
+#RNACOS_INIT_ADMIN_USERNAME=admin
+#RNACOS_INIT_ADMIN_PASSWORD=admin
+RNACOS_HTTP_PORT=8848
+RNACOS_RAFT_NODE_ADDR=127.0.0.1:9848
+RNACOS_CONFIG_DB_DIR=db01
+RNACOS_RAFT_NODE_ID=1
+RNACOS_RAFT_AUTO_INIT=true
+</code></pre>
+<p>env02:</p>
+<pre><code>#file:env02 , Initialize with the follower node role
+RUST_LOG=warn
+#RNACOS_INIT_ADMIN_USERNAME=admin
+#RNACOS_INIT_ADMIN_PASSWORD=admin
+RNACOS_HTTP_PORT=8849
+RNACOS_RAFT_NODE_ADDR=127.0.0.1:9849
+RNACOS_CONFIG_DB_DIR=db02
+RNACOS_RAFT_NODE_ID=2
+RNACOS_RAFT_JOIN_ADDR=127.0.0.1:9848
+</code></pre>
+<p>env03:</p>
+<pre><code>#file:env03 , Initialize with the follower node role
+RUST_LOG=warn
+#RNACOS_INIT_ADMIN_USERNAME=admin
+#RNACOS_INIT_ADMIN_PASSWORD=admin
+RNACOS_HTTP_PORT=8850
+RNACOS_RAFT_NODE_ADDR=127.0.0.1:9850
+RNACOS_CONFIG_DB_DIR=db03
+RNACOS_RAFT_NODE_ID=3
+RNACOS_RAFT_JOIN_ADDR=127.0.0.1:9848
+</code></pre>
+<p><strong>注：</strong> 上面的地址是本机运行多实例的地址，实际使用时换成具体的服务ip和port即可。</p>
+<h3 id="三启动集群"><a class="header" href="#三启动集群">三、启动集群</a></h3>
+<h4 id="第一次启动"><a class="header" href="#第一次启动">第一次启动</a></h4>
+<p>分别运行三个节点，需要先运行主节点成功后再运行</p>
+<p>先运行主节点</p>
+<pre><code class="language-sh">nohup ./rnacos -e env01 &gt; n01.log &amp;
+</code></pre>
+<p>主节点功能启动后，再运行从节点</p>
+<pre><code class="language-sh">nohup ./rnacos -e env02 &gt; n02.log &amp;
+nohup ./rnacos -e env03 &gt; n03.log &amp;
+</code></pre>
+<p>实例过程中不同的节点需要在不同的服务器运行服务。</p>
+<h4 id="集群重启"><a class="header" href="#集群重启">集群重启</a></h4>
+<p>节点重启和第一次启动的配置和启动方式不变。</p>
+<p>集群启动后，集群的节点信息已久化节点本地数据库中。
+在节点重启时后直接从本地数据库加载集群节点的信息。这时就不需要读取需要加入的集群地址，RNACOS_RAFT_JOIN_ADDR不会再被使用(留在配置中也不影响)。</p>
+<p>部分节点重启，在重启一个心跳时间(0.5秒)就会被重新加入集群。</p>
+<p>全部节点重启， raft需要启动静默5秒+选举超时3秒后才重新选举主节点；10秒左右集群才提供配置写入服务。 期间配置查询，和注册中心的读写可以正常使用。</p>
+<h3 id="四运行应用使用集群"><a class="header" href="#四运行应用使用集群">四、运行应用使用集群</a></h3>
+<p>集群服务启动后，即可运行原有的 nacos 应用。</p>
+<h4 id="配置中心http-api例子-1"><a class="header" href="#配置中心http-api例子-1">配置中心http api例子</a></h4>
+<pre><code class="language-sh">echo &quot;\npublish config t001:contentTest to node 1&quot;
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/cs/configs' -d 'dataId=t001&amp;group=foo&amp;content=contentTest'
+sleep 1
+
+echo &quot;\nget config info t001 from node 1, value:&quot;
+curl 'http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=t001&amp;group=foo'
+
+echo &quot;\nget config info t001 from node 2, value:&quot;
+curl 'http://127.0.0.1:8849/nacos/v1/cs/configs?dataId=t001&amp;group=foo'
+
+echo &quot;\nget config info t001 from node 3, value:&quot;
+curl 'http://127.0.0.1:8850/nacos/v1/cs/configs?dataId=t001&amp;group=foo'
+sleep 1
+
+echo &quot;\npublish config t002:contentTest02 to node 2&quot;
+curl -X POST 'http://127.0.0.1:8849/nacos/v1/cs/configs' -d 'dataId=t002&amp;group=foo&amp;content=contentTest02'
+sleep 1
+
+echo &quot;\nget config info t002 from node 1, value:&quot;
+curl 'http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=t002&amp;group=foo'
+
+echo &quot;\nget config info t002 from node 2, value:&quot;
+curl 'http://127.0.0.1:8849/nacos/v1/cs/configs?dataId=t002&amp;group=foo'
+
+echo &quot;\nget config info t002 from node 3, value:&quot;
+curl 'http://127.0.0.1:8850/nacos/v1/cs/configs?dataId=t002&amp;group=foo'
+
+</code></pre>
+<h4 id="注册中心http-api例子-1"><a class="header" href="#注册中心http-api例子-1">注册中心http api例子</a></h4>
+<pre><code class="language-sh">echo &quot;\nregister instance nacos.test.001 to node 1&quot;
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.11&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;001&quot;}'
+echo &quot;\nregister instance nacos.test.001 to node 2&quot;
+curl -X POST 'http://127.0.0.1:8849/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.12&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;002&quot;}'
+echo &quot;\nregister instance nacos.test.001 to node 3&quot;
+curl -X POST 'http://127.0.0.1:8850/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.13&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;003&quot;}'
+sleep 1
+echo &quot;\n\nquery service instance nacos.test.001 from node 1, value:&quot;
+curl &quot;http://127.0.0.1:8848/nacos/v1/ns/instance/list?&amp;namespaceId=public&amp;serviceName=foo%40%40nacos.test.001&amp;groupName=foo&amp;clusters=&amp;healthyOnly=true&quot;
+echo &quot;\n\nquery service instance nacos.test.001 from node 2, value:&quot;
+curl &quot;http://127.0.0.1:8849/nacos/v1/ns/instance/list?&amp;namespaceId=public&amp;serviceName=foo%40%40nacos.test.001&amp;groupName=foo&amp;clusters=&amp;healthyOnly=true&quot;
+echo &quot;\n\nquery service instance nacos.test.001 from node 3, value:&quot;
+curl &quot;http://127.0.0.1:8850/nacos/v1/ns/instance/list?&amp;namespaceId=public&amp;serviceName=foo%40%40nacos.test.001&amp;groupName=foo&amp;clusters=&amp;healthyOnly=true&quot;
+echo &quot;\n&quot;
+
+</code></pre>
+<p>如果在本地源码编译，可使用或参考<a href="https://github.com/heqingpan/rnacos/blob/master/test_cluster.sh">test_cluster.sh</a> 创建、测试集群。</p>
+<p>具体的用法参考 nacos.io 的用户指南。</p>
+<p><a href="https://nacos.io/zh-cn/docs/sdk.html">JAVA-SDK</a></p>
+<p><a href="https://nacos.io/zh-cn/docs/other-language.html">其它语言</a></p>
+<p><a href="https://nacos.io/zh-cn/docs/open-api.html">open-api</a></p>
+<h2 id="集群管理工具"><a class="header" href="#集群管理工具">集群管理工具</a></h2>
+<h3 id="通过控制台查看集群状态"><a class="header" href="#通过控制台查看集群状态">通过控制台查看集群状态</a></h3>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230915000345.png" alt="" /></p>
+<p>在控制台页面主要观注集群节点列表状态与raft主角点是否正常</p>
+<h3 id="通过接口查看集群状态"><a class="header" href="#通过接口查看集群状态">通过接口查看集群状态</a></h3>
+<ol>
+<li>查询指定节点的raft 集群状态</li>
+</ol>
+<pre><code class="language-sh">curl &quot;http://127.0.0.1:8848/nacos/v1/raft/metrics&quot;
+# {&quot;id&quot;:1,&quot;state&quot;:&quot;Leader&quot;,&quot;current_term&quot;:1,&quot;last_log_index&quot;:10,&quot;last_applied&quot;:10,&quot;current_leader&quot;:1,&quot;membership_config&quot;:{&quot;members&quot;:[1,2,3],&quot;members_after_consensus&quot;:null}}
+# 主要关注 current_leader和members
+</code></pre>
+<ol start="2">
+<li>增加节点</li>
+</ol>
+<pre><code class="language-sh">curl -X POST &quot;http://127.0.0.1:8848/nacos/v1/raft/add-learner&quot; -H &quot;Content-Type: application/json&quot; -d '[2, &quot;127.0.0.1:9849&quot;]'
+</code></pre>
+<p>推荐通过启动新节点时设置<code>RNACOS_RAFT_JOIN_ADDR</code>加入集群。
+如果配置时主节点不确定，可以启动后再调用主节点接口把新节点加入集群。</p>
+<p>此接口也可以用于在集群运行期更新集群节点地址。</p>
+<ol start="3">
+<li>更新集群节点列表</li>
+</ol>
+<pre><code class="language-sh">curl -X POST &quot;http://127.0.0.1:8848/nacos/v1/raft/change-membership&quot; -H &quot;Content-Type: application/json&quot; -d '[1, 2, 3]'
+</code></pre>
+<p>如果通过手动方式增加节点，需要调用本接口更新集群节点列表。</p>
+<p>此接口可以用于对集群缩容，下线指定节点。</p>
+<h2 id="附录介绍"><a class="header" href="#附录介绍">附录介绍</a></h2>
+<p><a href="https://www.cnblogs.com/shizioo/p/17710328.html">rnacos实现raft和类distro协议，支持集群部署</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="部署参数说明"><a class="header" href="#部署参数说明">部署参数说明</a></h1>
+<p>同一个应用包需要支持不同场景，就需要支持设置自定义参数。</p>
+<p>r-nacos 运行参数支持通过环境变量，或指定配置文件方式设置。 如果不设置则按默认参数运行。</p>
+<h2 id="设置运行参数的方式"><a class="header" href="#设置运行参数的方式">设置运行参数的方式</a></h2>
+<h3 id="通过环境变更设置参数"><a class="header" href="#通过环境变更设置参数">通过环境变更设置参数</a></h3>
+<p>例子：</p>
+<pre><code class="language-sh">RNACOS_HTTP_PORT=8848 ./rnacos
+</code></pre>
+<p>这种方式在自定义少量参数时比较方便</p>
+<h3 id="通过指定配置文件方式设置参数"><a class="header" href="#通过指定配置文件方式设置参数">通过指定配置文件方式设置参数</a></h3>
+<p>例子</p>
+<pre><code class="language-sh"># 从0.3.0版本开始支持 -e env_file 运行参数
+./rnacos -e env_file
+</code></pre>
+<p>如果不指定文件时也会尝试从当前目录下.env文件加载配置参数</p>
+<p>env_file内容的格式是</p>
+<pre><code>KEY1=VALUE1
+KEY2=VALUE2
+KEY3=VALUE3
+</code></pre>
+<p>rnacos 运行时支持的环境变量，如果不设置则按默认配置运行。</p>
+<h2 id="运行参数说明"><a class="header" href="#运行参数说明">运行参数说明</a></h2>
+<table><thead><tr><th>参数KEY</th><th>内容描述</th><th>默认值</th><th>示例</th><th>开始支持的版本</th></tr></thead><tbody>
+<tr><td>RNACOS_HTTP_PORT</td><td>rnacos监听http端口</td><td>8848</td><td>8848</td><td>0.1.x</td></tr>
+<tr><td>RNACOS_GRPC_PORT</td><td>rnacos监听grpc端口</td><td>默认是 HTTP端口+1000</td><td>9848</td><td>0.1.x</td></tr>
+<tr><td>RNACOS_HTTP_CONSOLE_PORT</td><td>r-nacos独立控制台端口</td><td>默认是 HTTP端口+2000;设置为0可不开启独立控制台</td><td>10848</td><td>0.4.x</td></tr>
+<tr><td>RNACOS_CONSOLE_LOGIN_ONE_HOUR_LIMIT</td><td>r-nacos控制台登录1小时失败次数限制</td><td>默认是5,一个用户连续登陆失败5次，会被锁定1个小时</td><td>5</td><td>0.4.x</td></tr>
+<tr><td>RNACOS_HTTP_WORKERS</td><td>http工作线程数</td><td>cpu核数</td><td>8</td><td>0.1.x</td></tr>
+<tr><td>RNACOS_CONFIG_DB_FILE</td><td>配置中心的本地数据库文件地址【0.2.x后不在使用】</td><td>config.db</td><td>config.db</td><td>0.1.x</td></tr>
+<tr><td>RNACOS_CONFIG_DB_DIR</td><td>配置中心的本地数据库文件夹, 会在系统运行时自动创建【因语义原因，v0.6.x后推荐使用RNACOS_DATA_DIR】</td><td>nacos_db</td><td>nacos_db</td><td>0.2.x</td></tr>
+<tr><td>RNACOS_DATA_DIR</td><td>本地数据库文件夹, 会在系统运行时自动创建【与RNACOS_CONFIG_DB_DIR等价，用于替代RNACOS_CONFIG_DB_DIR】</td><td>linux,MacOS默认为~/.local/share/r-nacos/nacos_db;windows,docker默认为nacos_db</td><td>nacos_db</td><td>0.6.x</td></tr>
+<tr><td>RNACOS_RAFT_NODE_ID</td><td>节点id</td><td>1</td><td>1</td><td>0.3.0</td></tr>
+<tr><td>RNACOS_RAFT_NODE_ADDR</td><td>节点地址Ip:GrpcPort,单节点运行时每次启动都会生效；多节点集群部署时，只取加入集群时配置的值</td><td>127.0.0.1:GrpcPort</td><td>127.0.0.1:9848</td><td>0.3.0</td></tr>
+<tr><td>RNACOS_RAFT_AUTO_INIT</td><td>是否当做主节点初始化,(只在每一次启动时生效)</td><td>节点1时默认为true,节点非1时为false</td><td>true</td><td>0.3.0</td></tr>
+<tr><td>RNACOS_RAFT_JOIN_ADDR</td><td>是否当做节点加入对应的主节点,LeaderIp:GrpcPort；只在第一次启动时生效</td><td>空</td><td>127.0.0.1:9848</td><td>0.3.0</td></tr>
+<tr><td>RNACOS_RAFT_SNAPSHOT_LOG_SIZE</td><td>raft打包snapshot镜像的日志数量;即变更日志超过这个值则会触发一次打包镜像</td><td>默认值10000</td><td>10000</td><td>0.5.0</td></tr>
+<tr><td>RUST_LOG</td><td>日志等级:debug,info,warn,error;所有http,grpc请求都会打info日志,如果不观注可以设置为error减少日志量</td><td>info</td><td>error</td><td>0.3.0</td></tr>
+<tr><td>RNACOS_ENABLE_NO_AUTH_CONSOLE</td><td>是否开启无鉴权控制台</td><td>false</td><td>false</td><td>0.5.2</td></tr>
+<tr><td>RNACOS_CONSOLE_LOGIN_TIMEOUT</td><td>控制台登陆有效时长(单位为秒)</td><td>一天,86400秒</td><td>86400</td><td>0.5.0</td></tr>
+<tr><td>RNACOS_GMT_OFFSET_HOURS</td><td>日志时间的时区，单位小时；默认为本机时区，运行在docker时需要指定</td><td>local</td><td>8(东8区),-5(西5区)</td><td>0.5.7</td></tr>
+<tr><td>RNACOS_ENABLE_OPEN_API_AUTH</td><td>是否对openapi开启鉴权；（注：nacos切换到r-nacos过程中不要开启鉴权）</td><td>false</td><td>true</td><td>0.5.8</td></tr>
+<tr><td>RNACOS_API_LOGIN_TIMEOUT</td><td>open api鉴权有效时长，单位为秒；(注：从不鉴权到开启鉴权，需要间隔对应时长以保证客户端token能更新生效)</td><td>一小时,3600秒</td><td>3600</td><td>0.5.8</td></tr>
+<tr><td>RNACOS_CLUSTER_TOKEN</td><td>集群间的通信请求校验token，空表示不开启校验，设置后只有相同token的节点间才可通讯</td><td>空字符串</td><td>1234567890abcdefg</td><td>0.5.8</td></tr>
+<tr><td>RNACOS_INIT_ADMIN_USERNAME</td><td>初始化管理员用户名，只在主节点第一次启动时生效</td><td>admin</td><td>rnacos</td><td>0.5.11</td></tr>
+<tr><td>RNACOS_INIT_ADMIN_PASSWORD</td><td>初始化管理员密码，只在主节点第一次启动时生效</td><td>admin</td><td>rnacos123456</td><td>0.5.11</td></tr>
+<tr><td>RNACOS_ENABLE_METRICS</td><td>是否开启监控指标功能</td><td>true</td><td>true</td><td>0.5.13</td></tr>
+<tr><td>RNACOS_METRICS_LOG_INTERVAL_SECOND</td><td>监控指标采集打印到日志的间隔,单位秒,最小间隔为5秒</td><td>30</td><td>10</td><td>0.5.13</td></tr>
+<tr><td>RNACOS_CONSOLE_ENABLE_CAPTCHA</td><td>验证码的开关</td><td>true</td><td>true</td><td>0.5.14</td></tr>
+</tbody></table>
+<p>注：从v0.3.0开始，默认参数启动的节点会被当做只有一个节点，当前节点是主节点的集群部署。支持其它新增的从节点加入。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="性能与容量说明"><a class="header" href="#性能与容量说明">性能与容量说明</a></h1>
+<h2 id="压测工具"><a class="header" href="#压测工具">压测工具</a></h2>
+<p>主要使用goose压测。</p>
+<p>参考项目中的子工程 <a href="https://github.com/heqingpan/rnacos/tree/master/loadtest">loadtest</a></p>
+<h2 id="性能压测结果"><a class="header" href="#性能压测结果">性能压测结果</a></h2>
+<table><thead><tr><th>模块</th><th>场景</th><th>单节点qps/tps</th><th>集群qps/tps</th><th>总结/备注</th></tr></thead><tbody>
+<tr><td>配置中心</td><td>配置写入,http协议</td><td>1.76万</td><td>7.6千</td><td>集群写入压测是在同一台电脑运行3个节点,如果换成多个机器部署,tps应该还能有所提升。</td></tr>
+<tr><td>配置中心</td><td>配置查询,http协议</td><td>8万</td><td>n*8万</td><td>集群的查询总qps是节点的倍数</td></tr>
+<tr><td>注册中心</td><td>服务实例注册,http协议</td><td>4.8万</td><td>2.4万</td><td>集群写入压测是在同一台电脑运行3个节点,如果换成多个机器部署,tps应该还能有所提升。</td></tr>
+<tr><td>注册中心</td><td>服务实例注册,grpc协议</td><td>4.8万</td><td>2.4万</td><td>grpc协议压测工具没有支持，目前没有实际压测，理论不会比http协议低</td></tr>
+<tr><td>注册中心</td><td>服务实例心跳,http协议</td><td>4.8万</td><td>2.4万</td><td>心跳是按实例计算和服务实例注册一致共享qps</td></tr>
+<tr><td>注册中心</td><td>服务实例心跳,grpc协议</td><td>8万以上</td><td>n*8万</td><td>心跳是按请求链接计算,且不过注册中心处理线程,每个节点只需管理当前节点的心跳，集群总心跳qps是节点的倍数</td></tr>
+<tr><td>注册中心</td><td>查询服务实例</td><td>3万</td><td>n*3万</td><td>集群的查询总qps是节点的倍数</td></tr>
+</tbody></table>
+<p><strong>注：</strong> 具体结果和压测环境有关</p>
+<h3 id="压测记录"><a class="header" href="#压测记录">压测记录</a></h3>
+<p>注册中心查询：</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230903202816.png" alt="" /></p>
+<p>配置中心查询，两个进程分别限流4万qps同时压测(共8万qps)，其中一个的压测记录：</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230903205737.png" alt="" /></p>
+<h2 id="容量分析"><a class="header" href="#容量分析">容量分析</a></h2>
+<h3 id="配置中心-1"><a class="header" href="#配置中心-1">配置中心</a></h3>
+<ol>
+<li>配置中心的单机查询8万qps，很高，又支持水平扩容；集群基本没有查询瓶颈。</li>
+<li>配置中心所占用的内存和配置内存有关，在内存没有满前，基本没有瓶颈。</li>
+<li>配置中心集群写入时统一在主节点写入，写入可能有瓶颈；目前1.5千tps,后面优化后应该能到1万 tps以上。</li>
+</ol>
+<h3 id="注册中心-1"><a class="header" href="#注册中心-1">注册中心</a></h3>
+<ol>
+<li>注册中心的单机查询3万qps，比较高，又支持水平扩容；集群基本没有查询瓶颈。</li>
+<li>注册中心所占用的内存和配置内存有关，在内存没有满前，基本没有瓶颈。</li>
+<li>注册中心集群写入时每个节点都要写一遍，整体集群的写入性能tps和单机理论上相当。</li>
+<li>http协议(v1.x版本)和grpc协议(v2.x)的心跳维护机制不同；http心跳是按实例计算和服务实例注册一致共享qps, grpc的心跳是按请求链接计算且不过注册中心处理线程。所有这类协议理论支持的容量差别很大。</li>
+</ol>
+<h4 id="注册中心集群注册容量推理"><a class="header" href="#注册中心集群注册容量推理">注册中心集群注册容量推理</a></h4>
+<ol>
+<li>http协议注册+心跳qps是1万，每个实例5秒钟一次心跳；理论上只能支持5万服务实例左右。</li>
+<li>grpc协议，注册qps假设也是1万，心跳qps单实例8万，3节点集群总心跳24万；如果平均一个应用实例1小时重连一次；支持注册的服务实例总数为：60<em>60</em>10000 = 3600万，心跳支持的链接实例总数为：5*24万=120万个链接实例（和集群节点有关）。</li>
+</ol>
+<p>结论:
+如果使用v1.0x http协议，支持的实例在5万个左右。
+如果使用v2.0x grpc协议，理论上基本没有瓶颈。</p>
+<hr />
+<h2 id="r-nacos与java-nacos性能压测对比-单机模式"><a class="header" href="#r-nacos与java-nacos性能压测对比-单机模式">r-nacos与java nacos性能压测对比 （单机模式）</a></h2>
+<p>旧版本的单机压测记录，有和java 版本nacos的比较.</p>
+<h3 id="压测环境与工具"><a class="header" href="#压测环境与工具">压测环境与工具</a></h3>
+<p>压测环境:macos i7四核 /16G  ， 施压、受压机器是同一台机器（会拉低压测结果）。
+压测工具: 
+* wrk ,qps: 24450左右
+* goose, qps 17000左右 （单进程加限流施压比 wrk低） 
+* 单进程施压请求wrk比goose 输出高</p>
+<p>r-nacos server版本：v0.1.1 
+java nacos server版本: 2.1.0</p>
+<p><strong>因wrk,goose暂时不支持grpc协议，暂时只压测http协议接口</strong></p>
+<h3 id="配置中心-2"><a class="header" href="#配置中心-2">配置中心</a></h3>
+<p>配置中心，不会频繁更新，写入不做压测。</p>
+<h4 id="rust-r-nacos-server"><a class="header" href="#rust-r-nacos-server">rust r-nacos server：</a></h4>
+<ol>
+<li>配置中心单机查询 wrk 压测 qps 在2.4万左右.</li>
+</ol>
+<h4 id="java-nacos-server"><a class="header" href="#java-nacos-server">java nacos server：</a></h4>
+<ol>
+<li>配置中心单机查询 wrk 压测, qps 在7700左右</li>
+</ol>
+<h3 id="注册中心-2"><a class="header" href="#注册中心-2">注册中心</a></h3>
+<h4 id="rust-r-nacos-server-1"><a class="header" href="#rust-r-nacos-server-1">rust r-nacos server：</a></h4>
+<ol start="2">
+<li>naming 注册1000 x 1个实例，每秒200qps，单核cpu: 4.5% 左右</li>
+<li>naming 单查询1.5万 QPS 左右
+<ol>
+<li>wrk  查询单个服务 ，1.65万 qps </li>
+<li>goose 查询1000个服务 ，1.5万 qps </li>
+</ol>
+</li>
+<li>naming 单注册服务
+<ol>
+<li>goose,5万到7万实例数  0.7万 qps左右。</li>
+</ol>
+</li>
+<li>查询与注册混合
+<ol>
+<li>wrk 查询单个服务（1.5万 qps) + goose 注册（0.075 万qps) 【5千实例】</li>
+<li>goose 查询1000个服务（1.3万 qps) + goose 注册（0.07万 qps) 【5千实例】</li>
+<li>wrk 查询单个服务（1.5万 qps) + goose 注册（0.15万qps) 【1万实例】</li>
+<li>goose 查询1000个服务（1.3万 qps) + goose 注册（0.13万 qps) 【1万实例】</li>
+</ol>
+</li>
+</ol>
+<h4 id="java-nacos-server-1"><a class="header" href="#java-nacos-server-1">java nacos server：</a></h4>
+<ol>
+<li>配置中心查询 wrk 压测, 7700 qps 左右</li>
+<li>naming 注册1000 x 1个实例，每秒200qps，单核cpu: 17% 左右</li>
+<li>naming 单查询
+<ol>
+<li>wrk 查询单个服务 ，1.35万 qps 。</li>
+<li>goose 查询1000个服务，1万 qps（前期应该还能上去一些）。前30秒能稳定在1万左右，30秒后，跌到200左右之后再上下浮动，可能受 GC 影响。</li>
+</ol>
+</li>
+<li>naming 单注册
+<ol>
+<li>goose,5万到7万实例数  0.45万 qps左右。</li>
+</ol>
+</li>
+<li>查询与注册混合
+<ol>
+<li>wrk 查询单个服务（1.3万 qps) + goose 注册（0.07 万qps) 【5千实例】</li>
+<li>goose 查询1000个服务（1万 qps) + goose 注册（0.07万 qps) 【5千实例】;  前期能保持，后期 qps 上下浮动比较大，最低小于50。</li>
+<li>wrk 查询单个服务（0.9万 qps) + goose 注册（0.12万qps) 【1万实例】</li>
+<li>goose 查询1000个服务（0.6万 qps) + goose 注册（0.08万 qps) 【1万实例】</li>
+</ol>
+</li>
+</ol>
+<h3 id="性能压测总结"><a class="header" href="#性能压测总结">性能压测总结</a></h3>
+<ol>
+<li>
+<p>r-nacos,除了服务服务注册不能稳定在1万以上，其它的接口qps都能稳定在1万以上。</p>
+</li>
+<li>
+<p>java 的查询接口基本能压到1万以上，但不平稳，后继浮动比较大。如果降低压测流程，qps 可以相对平稳。</p>
+</li>
+<li>
+<p>在多服务查询叠加上多服务注册场景，r-nacos  qps能稳定在1.3万左右, java nacos qps 下降明显在0.6万左右。</p>
+</li>
+<li>
+<p>r-nacos 综合 qps是 java版的2倍以上，因 java 有 GC，qps水位稳定性上 java较差（相同施压流量，qps 能从峰值1万能降到1百以下）。</p>
+</li>
+<li>
+<p>r-nacos 服务,线程数稳定在7，cpu 用例率最大200%左右（相当用个2核），内存在50M 以下</p>
+</li>
+<li>
+<p>java nacos 服务，线程数最大300左右， cpu 用例率最大500%左右，内存600M到900M。</p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="版本说明"><a class="header" href="#版本说明">版本说明</a></h1>
+<h2 id="r-nacos版本说明"><a class="header" href="#r-nacos版本说明">R-NACOS版本说明</a></h2>
+<table><thead><tr><th>版本</th><th>对nacos兼容说明</th><th>版本特点说明</th><th>适用场景</th></tr></thead><tbody>
+<tr><td>v0.3.3以上</td><td>支持2.x新最版nacos面向sdk的协议</td><td>支持集群部署版本，使用1个节点的集群方式当做单机模式,配置中心raft 协议没有充分优化，配置中心集群写入tps在1.5千左右</td><td>对配置中心没有太高频写入需求的应用都推荐使用这个版本 (后面会优化配置写入性能)</td></tr>
+<tr><td>v0.2.3 (不再推荐,新版bugfix暂定不再同步)</td><td>支持2.x新最版nacos面向sdk的协议</td><td>单机部署版本,配置中心数据库使用sled, 初始内存多占用25M左右,配置中心单机写入tps在1.5万以上</td><td>对配置中心有高频写入需求的应用可以考虑使用</td></tr>
+<tr><td>v0.1.10 (不再推荐,新版bugfix暂定不再同步)</td><td>支持1.x服务接口;除了查询服务中心服务列表外，支持2.x大部分接口</td><td>单机部署版本,配置中心数据库使用sqlite，内存占用比较低，但配置写入tps不高，7百左右</td><td>不使用2.x的注册中心服务，对内存占用敏感的小应用可以考虑使用</td></tr>
+</tbody></table>
+<h3 id="docker-版本说明-1"><a class="header" href="#docker-版本说明-1">docker 版本说明</a></h3>
+<p>应用每次打包都会同时打对应版本的docker包 ，qingpan/rnacos:$tag 。</p>
+<p>每个版本会打两类docker包</p>
+<table><thead><tr><th>docker包类型</th><th>tag 格式</th><th>示例</th><th>说明</th></tr></thead><tbody>
+<tr><td>gnu debian包</td><td>$version</td><td>qingpan/rnacos:v0.4.2</td><td>docker包基于debian-slim,体积比较大(压缩包36M,解压后102M),运行性能相对较高</td></tr>
+<tr><td>musl alpine包</td><td>$version-alpine</td><td>qingpan/rnacos:v0.4.2-alpine</td><td>docker包基于alpine,体积比较小(压缩包11M,解压后34M),运行性能相对较低</td></tr>
+</tbody></table>
+<p>如果不关注版本，可以使用最新正式版本tag。</p>
+<ul>
+<li>最新的gnu正式版本: <code>qingpan/rnacos:stable</code></li>
+<li>最新的alpine正式版本: <code>qingpan/rnacos:stable-alpine</code></li>
+</ul>
+<p><strong>MacOS arm系统补充说明</strong> ：目前MacOS arm系统运行<code>stable</code>镜像失败，可以先换成<code>stable-alpine</code>镜像。等后面解决arm <code>stable</code>镜像问题后再把这个注意事项去掉。</p>
+<h2 id="nacos-client-sdk"><a class="header" href="#nacos-client-sdk">nacos client sdk</a></h2>
+<h3 id="java-nacos-sdk"><a class="header" href="#java-nacos-sdk">java nacos sdk</a></h3>
+<p><strong>nacos-client</strong></p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.nacos&lt;/groupId&gt;
+    &lt;artifactId&gt;nacos-client&lt;/artifactId&gt;
+    &lt;version&gt;${nacos.version}&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<table><thead><tr><th>协议</th><th>验证过版本</th><th>推荐版本</th></tr></thead><tbody>
+<tr><td>grpc协议(2.x)</td><td>2.1.0</td><td>&gt;2.1.x</td></tr>
+<tr><td>http协议(1.x)</td><td>1.4.1</td><td>&gt;1.4.x</td></tr>
+</tbody></table>
+<h3 id="go-nacos-sdk"><a class="header" href="#go-nacos-sdk">go nacos sdk</a></h3>
+<p><strong>nacos-sdk-go</strong></p>
+<pre><code>nacos-sdk-go/v2 v2.2.5
+</code></pre>
+<table><thead><tr><th>协议</th><th>验证过版本</th><th>推荐版本</th></tr></thead><tbody>
+<tr><td>grpc协议(2.x)</td><td>2.2.5</td><td>&gt;=2.2.5</td></tr>
+</tbody></table>
+<h3 id="rust-nacos-sdk"><a class="header" href="#rust-nacos-sdk">rust nacos sdk</a></h3>
+<p><strong>nacos-sdk-rust</strong></p>
+<pre><code>nacos-sdk = &quot;0.3.3&quot;
+</code></pre>
+<table><thead><tr><th>协议</th><th>验证过版本</th><th>推荐版本</th></tr></thead><tbody>
+<tr><td>grpc协议</td><td>0.3.3</td><td>&gt;=0.3.3</td></tr>
+</tbody></table>
+<p><strong>nacos_rust_client</strong></p>
+<pre><code>nacos_rust_client = &quot;0.3.0&quot;
+</code></pre>
+<table><thead><tr><th>协议</th><th>验证过版本</th><th>推荐版本</th></tr></thead><tbody>
+<tr><td>同时支持http协议与grpc协议</td><td>0.3.0</td><td>&gt;=0.3.0</td></tr>
+<tr><td>http协议</td><td>0.2.2</td><td>&gt;=0.2.2</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h1>
+<h2 id="控制台查询不到信息"><a class="header" href="#控制台查询不到信息">控制台查询不到信息</a></h2>
+<p>控制台查询配置信息，是按命名空间作隔离的。</p>
+<p>要先确认创建的命名空间与控制台查询的命名空间是否一致。</p>
+<p>如果不一致，先在<code>命令空间</code>管理页面维护对应的命名空间，再到配置列表或服务列表切换到对应名命空间查询。</p>
+<p><img src="https://user-images.githubusercontent.com/1174480/268299508-b5644002-364a-40ff-ba31-4b00b669257e.png" alt="" /></p>
+<p><img src="https://user-images.githubusercontent.com/1174480/268299574-4947b9f8-79e1-48e2-97fe-e9767e26ddc0.png" alt="" /></p>
+<p><img src="https://user-images.githubusercontent.com/1174480/268327170-92bc26d6-8c17-4060-b0ad-796d6e3c06e7.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="架构"><a class="header" href="#架构">架构</a></h1>
+<h2 id="r-nacos架构图"><a class="header" href="#r-nacos架构图">r-nacos架构图</a></h2>
+<p><img src="https://raw.githubusercontent.com/r-nacos/r-nacos/master/doc/assets/imgs/r-nacos_L2_0.3.7.svg" alt="架构图" /></p>
+<p>说明：</p>
+<ul>
+<li>r-nacos默认支持集群部署，单机就相当于一个节点的集群，后续有需要可以按需加入新的节点；</li>
+<li>数据持久化使用raft协议分布式数据库(raft协议+节点文件存储),类似etcd;</li>
+<li>只需对<code>RNACOS_CONFIG_DB_DIR:nacos_db</code>目录下的文件备份与恢复，即可实现数据的备份与恢复；</li>
+<li>r-nacos控制台使用前后端分离架构；前端应用因依赖nodejs,所以单独放到另一个项目 <a href="https://github.com/r-nacos/rnacos-console-web">r-nacos-console-web</a> ,再通过cargo 把打包好的前端资源引入到本项目,避免开发rust时还要依赖nodejs。</li>
+</ul>
+<p>多实例的raft和distro分布式协议说明待补充</p>
+<h2 id="配置中心-3"><a class="header" href="#配置中心-3">配置中心</a></h2>
+<p>配置模型图</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/rnacos_L4_config001.svg" alt="" /></p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/rnacos_L4_config001_LR.svg" alt="" /></p>
+<h2 id="配置中心raft协议"><a class="header" href="#配置中心raft协议">配置中心raft协议</a></h2>
+<p>raft协议的主要逻辑：</p>
+<ol>
+<li>节点区分角色：leader(主节点),follower(从节点),candidate(选举节点); </li>
+<li>稳定状态是一个主节点，多个从节点；</li>
+<li>主节点负责写入，写入时需要先把写入日志同步到其它节点，超过半数节点写入日志成功后才能提交日志到状态机。</li>
+<li>主节点需要定时发心跳到从节点，从节点如果超时未收到心跳，则会发起选举。选举时收到超过半数节点的同意，就可以切换成主节点。</li>
+</ol>
+<p>具体协议可以参考 <a href="https://docs.qq.com/doc/DY0VxSkVGWHFYSlZJ">raft协议论文</a></p>
+<p>r-nacos 接入 raft的主要逻辑：</p>
+<ol>
+<li>基于 async-raft 库实现raft协议，主要实现网络层和存储层。在 r-nacos中存储层的状态机就是配置中心。</li>
+<li>配置中心接入raft 协议的状态机，由 raft 状态机驱动更新配置中心的内容。</li>
+</ol>
+<p>r-nacos一个三节点的配置中心请求处理示例：</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230917182416.png" alt="" /></p>
+<p>写入:</p>
+<ol>
+<li>客户端随机向一个节点发起一个更新配置请求</li>
+<li>在请求入口层加一个raft路由判断，如果本节点是主节点则处理，否则路由到指定主节点处理</li>
+<li>主节点写入请求到raft日志</li>
+<li>将请求同步到其它从节点</li>
+<li>如果超过半数节点写入日志成功（包含自身），则提交请求日志到状态机中，配置写入配置中心。（其它从节点的提交在下次日志同步或心跳时提交）</li>
+<li>返回处理结果</li>
+</ol>
+<p>请求：</p>
+<ol>
+<li>客户端随机向一个节点发起一个查询配置请求</li>
+<li>收到请求的节点和单机处理一样，直接查询本节点配置中心数据返回。</li>
+</ol>
+<h2 id="注册中心类distro协议"><a class="header" href="#注册中心类distro协议">注册中心类distro协议</a></h2>
+<p>协议主要逻辑：</p>
+<ol>
+<li>每个节点有全量的数据，都可提供注册信息查询服务。</li>
+<li>注册中心每个节点平等，按hash划分每个节点负责的内容；节点对负责的服务可写，否则转发到对应负责的节点处理。</li>
+<li>通过 grpc协议注册的服务，接收的节点直接处理。</li>
+<li>一个节点更新服务实例信息后再同步给其它节点。</li>
+</ol>
+<p>具体协议可以参考java nacos 的distro协议实现 。
+r-nacos 和 java版主体逻辑相同，但实现的细节有些区别。</p>
+<p>r-nacos一个三节点的注册中心请求处理示例：</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230917182622.png" alt="" /></p>
+<p>http 写入：</p>
+<ol>
+<li>客户端随机向一个节点发起一个注册服务实例请求</li>
+<li>请求通过服务路由判断，如果服务路由的节点是本节点则处理，否则路由到指定的其它节点处理</li>
+<li>收到本节点负责的服务实例请求，把请求注册到注册中心中</li>
+<li>返回处理结果</li>
+<li>异步同步更新的数据到其它节点</li>
+</ol>
+<p>grpc 写入（不路由，本节点直接处理）：</p>
+<ol>
+<li>客户端随机向一个节点发起grpc长链接</li>
+<li>客户端发起一个注册服务实例请求</li>
+<li>像单机一样，把请求注册到注册中心中</li>
+<li>返回处理结果</li>
+<li>异步同步更新的数据到其它节点</li>
+</ol>
+<p>查询：</p>
+<ol>
+<li>客户端随机向一个节点发起一个查询服务信息请求</li>
+<li>收到请求的节点和单机处理一样，直接查询本节点注册中心数据返回。</li>
+</ol>
+<h3 id="为什么http的写入与grpc写入的路由逻辑不同"><a class="header" href="#为什么http的写入与grpc写入的路由逻辑不同">为什么http的写入与grpc写入的路由逻辑不同？</a></h3>
+<p>因为grpc的心跳是按长链接来处理，一个客户端的链接段开，则这个链接的所用请求都失效。【高效】</p>
+<p>然后http的实例注册是无状态的，只能通过定时器按注册时间更新实例的状态；同时注册中心中实例是按服务分类维护的。
+所以http注册的实例需要按服务做路由，这样才能支持不同的节点负责不同范围的服务。【低效】</p>
+<p>所以在注册中心使用grpc协议的性能会比http协议性能好很多。</p>
+<p><strong>待补充...</strong></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="控制台接口"><a class="header" href="#控制台接口">控制台接口</a></h1>
+<h2 id="全局说明"><a class="header" href="#全局说明">全局说明</a></h2>
+<h3 id="公共对象"><a class="header" href="#公共对象">公共对象</a></h3>
+<blockquote>
+<p>通用返回值</p>
+</blockquote>
+<pre><code class="language-json">{
+    &quot;success&quot;: boolean, //调用结果是否成功
+    &quot;data: object, //返回对像
+    &quot;code&quot;: string, //返回的错误码，在success为false时有值
+    &quot;message&quot;: string , //返回的错误信息,在success为false时有值
+}
+</code></pre>
+<blockquote>
+<p>通用分页对像</p>
+</blockquote>
+<pre><code class="language-json">{
+    &quot;totalCount&quot;: int, //总记录数
+    &quot;list&quot;: [], //本次分页查询结果列表
+}
+</code></pre>
+<p>对应的分页查询返回值为</p>
+<pre><code class="language-json">{
+    &quot;success&quot;: boolean, //调用结果是否成功
+    &quot;data: {
+        &quot;totalCount&quot;: int, //总记录数
+        &quot;list&quot;: [], //本次分页查询结果列表
+    },
+    &quot;code&quot;: string, //返回的错误码，在success为false时有值
+    &quot;message&quot;: string , //返回的错误信息,在success为false时有值
+}
+
+</code></pre>
+<h3 id="特殊错误码定义"><a class="header" href="#特殊错误码定义">特殊错误码定义</a></h3>
+<table><thead><tr><th>错误码</th><th>错误信息</th><th>备注</th></tr></thead><tbody>
+<tr><td>SYSTEM_ERROR</td><td>系统错误</td><td>未明确的系统错误</td></tr>
+<tr><td>NO_LOGIN</td><td>用户没有登陆</td><td>需要跳转到登陆页</td></tr>
+<tr><td>NO_PERMISSION</td><td>用户没有权限</td><td></td></tr>
+<tr><td>CAPTCHA_CHECK_ERROR</td><td>验证码校验不通过</td><td></td></tr>
+<tr><td>LOGIN_LIMITE_ERROR</td><td>用户频繁密码校验不通过被限制登陆</td><td></td></tr>
+</tbody></table>
+<h3 id="其它"><a class="header" href="#其它">其它</a></h3>
+<p>重构后规范化的接口都放到<code>/rnacos/api/console/v2/</code>下</p>
+<h2 id="接口"><a class="header" href="#接口">接口</a></h2>
+<h3 id="1-登陆模块"><a class="header" href="#1-登陆模块">1. 登陆模块</a></h3>
+<blockquote>
+<p>登陆接口</p>
+</blockquote>
+<p>'''</p>
+<p>'''</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+                        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+                
+    </body>
+</html>

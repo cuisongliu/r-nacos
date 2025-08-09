@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>快速开始 - r-nacos文档</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">简介</a></li><li class="chapter-item expanded "><a href="quick-started.html" class="active"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li class="chapter-item expanded "><a href="cluster_deploy.html"><strong aria-hidden="true">2.</strong> 集群部署</a></li><li class="chapter-item expanded "><a href="deplay_env.html"><strong aria-hidden="true">3.</strong> 运行参数说明</a></li><li class="chapter-item expanded "><a href="performance.html"><strong aria-hidden="true">4.</strong> 性能与容量说明</a></li><li class="chapter-item expanded "><a href="version_describe.html"><strong aria-hidden="true">5.</strong> 版本说明</a></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">6.</strong> 常见问题</a></li><li class="chapter-item expanded "><a href="architecture.html"><strong aria-hidden="true">7.</strong> 架构</a></li><li class="chapter-item expanded "><a href="console_api.html"><strong aria-hidden="true">8.</strong> 控制台接口</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">r-nacos文档</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="快速开始"><a class="header" href="#快速开始">快速开始</a></h1>
+<h2 id="一-安装运行-r-nacos"><a class="header" href="#一-安装运行-r-nacos">一、 安装运行 r-nacos</a></h2>
+<p>【单机部署】</p>
+<p>方式1：从 <a href="https://github.com/heqingpan/rnacos/releases">github release</a> 下载对应系统的应用包，解压后即可运行。</p>
+<p>linux 或 mac </p>
+<pre><code class="language-shell"># 解压
+tar -xvf rnacos-x86_64-apple-darwin.tar.gz
+# 运行
+./rnacos
+</code></pre>
+<p>windows 解压后直接运行 rnacos.exe 即可。</p>
+<p>方式2:  通过docker 运行</p>
+<pre><code>#stable是最新正式版本号，也可以指定镜像版本号，如： qingpan/rnacos:v0.4.0
+docker pull qingpan/rnacos:stable  
+docker run --name mynacos -p 8848:8848 -p 9848:9848 -p 10848:10848 -d qingpan/rnacos:stable
+</code></pre>
+<p>docker 的容器运行目录是 /io，会从这个目录读写配置文件</p>
+<h4 id="docker-版本说明"><a class="header" href="#docker-版本说明">docker 版本说明</a></h4>
+<p>应用每次打包都会同时打对应版本的docker包 ，qingpan/rnacos:$tag 。</p>
+<p>每个版本会打两类docker包</p>
+<table><thead><tr><th>docker包类型</th><th>tag 格式</th><th>示例</th><th>说明</th></tr></thead><tbody>
+<tr><td>gnu debian包</td><td>$version</td><td>qingpan/rnacos:v0.4.0</td><td>docker包基于debian-slim,体积比较大(压缩包36M,解压后102M),运行性能相对较高;</td></tr>
+<tr><td>musl alpine包</td><td>$version-alpine</td><td>qingpan/rnacos:v0.4.0-alpine</td><td>docker包基于alpine,体积比较小(压缩包11M,解压后34M),运行性能相对较低;</td></tr>
+</tbody></table>
+<p>如果不观注版本，可以使用最新正式版本tag: </p>
+<ul>
+<li>最新的gnu正式版本: <code>qingpan/rnacos:stable</code></li>
+<li>最新的alpine正式版本: <code>qingpan/rnacos:stable-alpine</code></li>
+</ul>
+<p>方式3：通过 cargo 编译安装</p>
+<pre><code># 安装
+cargo install rnacos
+# 运行
+rnacos
+</code></pre>
+<p>方式4: 下载源码编译运行</p>
+<pre><code>git clone https://github.com/heqingpan/rnacos.git
+cd rnacos
+cargo build --release
+cargo run --release
+</code></pre>
+<p>方式5: MacOS支持通过brew安装</p>
+<pre><code class="language-shell"># 把r-nacos加入taps
+brew tap r-nacos/r-nacos 
+
+# brew 安装 r-nacos
+brew install r-nacos
+
+# 运行
+rnacos
+
+# 后续可以直接通过以下命令更新到最新版本
+# brew upgrade r-nacos 
+</code></pre>
+<p>测试、试用推荐使用第1、第2种方式，直接下载就可以使用。</p>
+<p>在linux下第1、第2种方式默认是musl版本(性能比gnu版本差一些)，在生产服务对性能有要求的可以考虑使用第3、第4种在对应环境编译gnu版本部署。</p>
+<p>启动配置可以参考： <a href="./deplay_env.html">运行参数说明</a></p>
+<h2 id="二运行nacos-应用"><a class="header" href="#二运行nacos-应用">二、运行nacos 应用</a></h2>
+<p>服务启动后，即可运行原有的 nacos 应用。</p>
+<h3 id="配置中心http-api例子"><a class="header" href="#配置中心http-api例子">配置中心http api例子</a></h3>
+<pre><code># 设置配置
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/cs/configs' -d 'dataId=t001&amp;group=foo&amp;content=contentTest'
+
+# 查询
+curl 'http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=t001&amp;group=foo'
+
+</code></pre>
+<h3 id="注册中心http-api例子"><a class="header" href="#注册中心http-api例子">注册中心http api例子</a></h3>
+<pre><code># 注册服务实例
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.11&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;001&quot;}'
+
+curl -X POST 'http://127.0.0.1:8848/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.12&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;002&quot;}'
+
+ curl -X POST 'http://127.0.0.1:8848/nacos/v1/ns/instance' -d 'port=8000&amp;healthy=true&amp;ip=192.168.1.13&amp;weight=1.0&amp;serviceName=nacos.test.001&amp;groupName=foo&amp;metadata={&quot;app&quot;:&quot;foo&quot;,&quot;id&quot;:&quot;003&quot;}'
+
+# 查询服务实例
+
+curl &quot;http://127.0.0.1:8848/nacos/v1/ns/instance/list?&amp;namespaceId=public&amp;serviceName=foo%40%40nacos.test.001&amp;groupName=foo&amp;clusters=&amp;healthyOnly=true&quot;
+
+</code></pre>
+<p>具体的用法参考 nacos.io 的用户指南。</p>
+<p><a href="https://nacos.io/zh-cn/docs/sdk.html">JAVA-SDK</a></p>
+<p><a href="https://nacos.io/zh-cn/docs/other-language.html">其它语言</a></p>
+<p><a href="https://nacos.io/zh-cn/docs/open-api.html">open-api</a></p>
+<h2 id="三使用r-nacos控制台"><a class="header" href="#三使用r-nacos控制台">三、使用r-nacos控制台</a></h2>
+<p>从0.4.0版本开始，支持独立端口号的新控制台。新控制台有完备的用户管理、登陆校验、权限控制，支持对外网暴露。</p>
+<p>启动服务后可以在浏览器通过 <code>http://127.0.0.1:10848/rnacos/</code> 访问r-nacos新控制台。 </p>
+<p>老控制台<code>http://127.0.0.1:8848/rnacos/</code> 标记废弃，默认不开启，可通过配置开启。老控制台不需要登陆鉴权、不支持用户管理。</p>
+<p>主要包含用户管理、命名空间管理、配置管理、服务管理、服务实例管理。</p>
+<p>1、用户登陆</p>
+<p>在新控制台打开一个地址，如果检测到没有登陆，会自动跳转到登陆页面。
+一个用户连续登陆失败5次，会被锁定1个小时。这个次数可以通过启动参数配置。</p>
+<img style="width: 400px;" width="400" src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20231223220425.png" />
+<p>2、用户管理</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20231223222325.png" alt="" /></p>
+<p>系统会默认创建一个名为<code>admin</code>的用户，密码为<code>admin</code>(也可以通过环境变量 RNACOS_INIT_ADMIN_USERNAME 和 RNACOS_INIT_ADMIN_PASSWORD 修改默认账号的账户名和密码)。 </p>
+<p>进去控制台后可按需管理用户。 </p>
+<p>用户角色权限说明：</p>
+<ol>
+<li>管理员: 所有控制台权限</li>
+<li>开发者：除了用户管理的所有控制台权限</li>
+<li>访客：只能查询配置中心与注册中心的数据，没有编辑权限。</li>
+</ol>
+<p><strong>注意：</strong> 对外暴露的nacos控制台端口前，建议增加一个自定义管理员，把admin用户删除或禁用。</p>
+<p>3、配置管理</p>
+<p>配置列表管理</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230506155441.png" alt="" /></p>
+<p>新建、编辑配置</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230506155545.png" alt="" /></p>
+<p>4、服务列表管理</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230506155133.png" alt="" /></p>
+<p>5、服务实例管理</p>
+<p><img src="https://github.com/heqingpan/rnacos/raw/master/doc/assets/imgs/20230506155158.png" alt="" /></p>
+<p>6、命名空间管理</p>
+<p><img src="https://user-images.githubusercontent.com/1174480/268299574-4947b9f8-79e1-48e2-97fe-e9767e26ddc0.png" alt="" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="cluster_deploy.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="cluster_deploy.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
